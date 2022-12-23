@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BASE_URL } from './utils/requests'
 import { API_KEY } from './utils/key'
-import {sunny, cloudy, calmRain, storm} from './utils/weatherConditions'
+import {sunny, cloudy, calmRain, storm, snow} from './utils/weatherConditions'
 import {morning, midDay, evening, night} from './utils/dayPeriod'
 import './utils/backgrounds.css'
 import './App.css'
@@ -30,6 +30,7 @@ const getBackground = () => {
   if(cloudy.includes(result.current.condition.code)) weatherConditions = 'cloudy'
   if(calmRain.includes(result.current.condition.code)) weatherConditions = 'calm-rain'
   if(storm.includes(result.current.condition.code)) weatherConditions = 'storm'
+  if(snow.includes(result.current.condition.code)) weatherConditions = 'snow'
 
   if(morning.includes(result.location.localtime.substring(11, 13))) dayPeriod = 'morning'
   if(midDay.includes(result.location.localtime.substring(11, 13))) dayPeriod = 'mid-day'
@@ -63,7 +64,7 @@ useEffect(() => {
         value={cityRequested}
         onKeyUp={getData}
         />
-        <label htmlFor="searchBar" className='search-bar-label'><i className="bi bi-arrow-left"></i>Digite qualquer cidade</label>
+{/*         <label htmlFor="searchBar" className='search-bar-label'><i className="bi bi-arrow-left"></i>Digite qualquer cidade</label> */}
       </div>
 
       <div>

@@ -59,3 +59,20 @@
     background: url(../assets/storm/storm-night.webp) no-repeat;
 }
  
+
+.snow-morning{
+    background: url(../assets/snow/snow-morning-background.webp) no-repeat;
+}
+ 
+.snow-mid-day{
+    background: url(../assets/snow/snow-mid-day-background.webp) no-repeat;
+}
+ 
+.snow-evening{
+    background: url(../assets/snow/snow-evening-background.webp) no-repeat;
+}
+ 
+.snow-night{
+    background: url(../assets/snow/snow-night.webp) no-repeat;
+}
+ 
