@@ -1,35 +1,64 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import { BASE_URL } from './utils/requests'
 import { API_KEY } from './utils/key'
+import {sunny, cloudy, calmRain, storm} from './utils/weatherConditions'
+import {morning, midDay, evening, night} from './utils/dayPeriod'
+import './utils/backgrounds.css'
 import './App.css'
 
 function App() {
   const [requestType, setRequestType] = useState('current')
   const [cityRequested, setCityRequested] = useState('')
   const [result, setResult] = useState<any>()
+  const [backgroundState, setBackgroundState] = useState<any>('clear-morning')
 
   const getData = async () => {
-    setTimeout(() => {
-      //just waiting
-    }, 1500)
-    let response = await fetch(`${BASE_URL}${requestType}.json?key=${API_KEY}&q=${cityRequested}`)
+    let response = await fetch(`${BASE_URL}${requestType}.json?key=${API_KEY}&q=${cityRequested}&aqi=yes`)
     let result = await response.json()
     console.log(result.location)
     setResult(result)
 }
+
+const getBackground = () => {
+  if(result?.location) {
+  let weatherConditions = ''
+  let dayPeriod = ''
+
+  console.log(result.location.localtime.substring(11, 13))
+
+  if(sunny.includes(result.current.condition.code)) weatherConditions = 'clear'
+  if(cloudy.includes(result.current.condition.code)) weatherConditions = 'cloudy'
+  if(calmRain.includes(result.current.condition.code)) weatherConditions = 'calm-rain'
+  if(storm.includes(result.current.condition.code)) weatherConditions = 'storm'
+
+  if(morning.includes(result.location.localtime.substring(11, 13))) dayPeriod = 'morning'
+  if(midDay.includes(result.location.localtime.substring(11, 13))) dayPeriod = 'mid-day'
+  if(evening.includes(result.location.localtime.substring(11, 13))) dayPeriod = 'evening'
+  if(night.includes(result.location.localtime.substring(11, 13))) dayPeriod = 'night'
+
+  setBackgroundState(`${weatherConditions}-${dayPeriod}`)
+}
+}
+
 useEffect(() => {
-  console.log(cityRequested)
-}, [cityRequested])
+  console.log(backgroundState)
+}, [backgroundState])
+
+useEffect(() => {
+  getBackground()
+  console.log(result)
+  console.log("background: " + backgroundState)
+}, [result])
 
   return (
-    <div className="App">
+    <div className={`App ${backgroundState}`}>
       <div className='input-search-div'>
         <input
         type="text"
         className='input-search'
         id='searchBar'
         spellCheck="false"
+        autoComplete='off'
         onChange={(e) => setCityRequested(e.target.value)}
         value={cityRequested}
         onKeyUp={getData}

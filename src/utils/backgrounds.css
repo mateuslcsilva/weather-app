@@ -1,0 +1,61 @@
+.clear-morning{
+    background: url(../assets/sunny/sunny-morning-background.webp);
+}
+.clear-mid-day{
+    background: url(../assets/sunny/blue-cloudy-watercolor-background.jpg);
+}
+.clear-evening{
+    background: url(../assets/sunny/sunny-evening-background.webp)
+}
+.clear-night{
+    background: url(../assets/sunny/night-sky-background.webp);
+}
+
+.cloudy-morning{
+    background: url(../assets/cloudy/cloudy-early-morning-background.webp) no-repeat;
+}
+ 
+.cloudy-mid-day{
+    background: url(../assets/cloudy/cloudy-mid-day-background.webp) no-repeat;
+}
+ 
+.cloudy-evening{
+    background: url(../assets/cloudy/cloudy-evening-background.webp) no-repeat;
+}
+ 
+.cloudy-night{
+    background: url(../assets/cloudy/cloudy-night-background.webp) no-repeat;
+}
+
+.calm-rain-morning{
+    background: url(../assets/calm-rain/calm-rain-early-morning-background.webp) no-repeat;
+}
+ 
+.calm-rain-mid-day{
+    background: url(../assets/calm-rain/calm-rain-mid-day-background.webp) no-repeat;
+}
+ 
+.calm-rain-evening{
+    background: url(../assets/calm-rain/calm-rain-evening-background.webp) no-repeat;
+}
+ 
+.calm-rain-night{
+    background: url(../assets/calm-rain/calm-rain-night.webp) no-repeat;
+}
+
+.storm-morning{
+    background: url(../assets/storm/storm-early-morning-background.webp) no-repeat;
+}
+ 
+.storm-mid-day{
+    background: url(../assets/storm/storm-mid-day-background.webp) no-repeat;
+}
+ 
+.storm-evening{
+    background: url(../assets/storm/storm-evening-background.webp) no-repeat;
+}
+ 
+.storm-night{
+    background: url(../assets/storm/storm-night.webp) no-repeat;
+}
+ 
