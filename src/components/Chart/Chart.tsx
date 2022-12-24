@@ -37,7 +37,15 @@ import {
           title: {
             display: false,
           },
+          tooltip: {
+            enabled: false
+          }
         },
+        scales: {
+          y: {
+            max: 100
+          }
+        }
       };
 
       const labelsFunc = () => {
@@ -55,7 +63,9 @@ import {
         datasets: [
           {
             data: chartData,
-            backgroundColor: 'rgba(33, 110, 211, 0.671)'
+            backgroundColor: 'rgba(33, 110, 211, 0.671)',
+            hoverBackgroundColor: 'rgba(33, 110, 211)',
+            borderRadius: 5
           }
         ]
       };
