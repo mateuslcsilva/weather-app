@@ -1,1 +1,1 @@
-export const BASE_URL = import.meta.env.PROD ? 'https://api.weatherapi.com/v1/' : 'http://api.weatherapi.com/v1/'
+export const BASE_URL = import.meta.env.DEV ?  import.meta.env.VITE_BASE_URL_DEV : import.meta.env.VITE_BASE_URL_PROD

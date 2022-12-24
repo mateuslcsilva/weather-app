@@ -13,6 +13,7 @@ import "./utils/backgrounds.css";
 import "./App.css";
 
 function App() {
+
   const [requestType, setRequestType] = useState("current");
   const [cityRequested, setCityRequested] = useState("maringa");
   const [result, setResult] = useState<any>();
@@ -24,7 +25,7 @@ function App() {
       `${BASE_URL}${requestType}.json?key=${API_KEY}&q=${cityRequested}&days=7&lang=pt`
     );
     let result = await response.json();
-    console.log(result, requestType);
+/*     console.log(result, requestType); */
     setRequestType("current");
     setForecastData(result);
   };
@@ -35,7 +36,7 @@ function App() {
     );
     let result = await response.json();
     setRequestType("forecast");
-    console.log(result, requestType);
+/*     console.log(result, requestType); */
     setResult(result);
   };
 
