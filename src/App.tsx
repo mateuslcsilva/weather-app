@@ -11,11 +11,11 @@ import {
 import { morning, midDay, evening, night } from "./utils/dayPeriod";
 import "./utils/backgrounds.css";
 import "./App.css";
+import { LocationCurrent } from "./components/LocationCurrent/LocationCurrent";
+import { NextDays } from "./components/NextDays/NextDays";
+import { ForecastContent } from "./components/ForecastContent/ForecastContent";
 
 function App() {
-
-  console.log(import.meta.env.PROD)
-
   const [requestType, setRequestType] = useState("current");
   const [cityRequested, setCityRequested] = useState("maringa");
   const [result, setResult] = useState<any>();
@@ -27,7 +27,7 @@ function App() {
       `${BASE_URL}${requestType}.json?key=${API_KEY}&q=${cityRequested}&days=7&lang=pt`
     );
     let result = await response.json();
-/*     console.log(result, requestType); */
+    console.log(result, requestType);
     setRequestType("current");
     setForecastData(result);
   };
@@ -38,7 +38,7 @@ function App() {
     );
     let result = await response.json();
     setRequestType("forecast");
-/*     console.log(result, requestType); */
+    console.log(result, requestType);
     setResult(result);
   };
 
@@ -77,7 +77,9 @@ function App() {
 
   useEffect(() => {
     if (result?.location) {
-      setTimeout(() => {getBackground();}, 1000)
+      setTimeout(() => {
+        getBackground();
+      }, 1000);
       getForecast();
     }
   }, [result]);
@@ -87,90 +89,44 @@ function App() {
       className={`App ${result?.location ? backgroundState : "cloudy-morning"}`}
     >
       <main className="main-content">
-        <div className="location-current">
-          {result?.location && (
-            <div className="location row align-end">
-              <h2>{result.location.name}</h2>
-              {/* <h2>{', ' + result.location.region}</h2> */}
-              <h2>{", " + result.location.country}</h2>
-              <p>{`${result.location.localtime.substring(
-                11,
-                16
-              )}, ${result.location.localtime
-                .substring(0, 10)
-                .replaceAll("-", "/")}`}</p>
+        <LocationCurrent result={result} forecastData={forecastData} />
+        {forecastData?.forecast && (
+          <div className="day-and-hours">
+            <div className="row justify-around">
+              <h2>Amanhã</h2>
+              <h2>Depois</h2>
             </div>
-          )}
-          <div className="row" style={{ width: "100%" }}>
-            {result?.current && (
-              <div className="current">
-                <p className="current-temp">
-                  {result.current.temp_c}
-                  <span>ºC</span>
-                </p>
-                <p>{result.current.condition.text}</p>
-                <p>
-                  {`Sensacão Térmica: ${result.current.feelslike_c}`}
-                  <span>ºC</span>
-                </p>
-              </div>
-            )}
-            <hr />
-            {!forecastData?.forecast && (<p>carregando</p>)}
-            {forecastData?.forecast && (
-              <div className="forecast-content">
-                <div
-                  className="row justify-around"
-                  style={{ width: "100%", transform: "translateY(15%)" }}
-                >
-                  <i className="bi bi-sunrise-fill"></i>
-                  <i className="bi bi-sunset-fill"></i>
-                </div>
-                <div className="row justify-around" style={{ width: "100%" }}>
-                  <p>
-                    <strong>
-                      {forecastData.forecast.forecastday[0].astro.sunrise}
-                    </strong>
-                  </p>
-                  <p>
-                    <strong>
-                      {forecastData.forecast.forecastday[0].astro.sunset}
-                    </strong>
-                  </p>
-                </div>
-                <div style={{width: '100%'}} className="row">
-                  <div
-                    className="column"
-                    style={{ fontSize: "14pt", padding: "25px 15px", width: '50%' }}
-                  >
-                    <p>
-                      <strong>{`Mínima: ${forecastData.forecast.forecastday[0].day.mintemp_c.toString().substring(0,2)}ºC`}</strong>
-                    </p>
-                    <p>
-                      <strong>{`Máxima: ${forecastData.forecast.forecastday[0].day.maxtemp_c.toString().substring(0,2)}ºC`}</strong>
-                    </p>
-                  </div>
-                  <div
-                    className="column align-center"
-                    style={{ fontSize: "14pt", width: '50%', paddingTop: '2vh'}}
-                  >
-                    <i
-                      className={`bi bi-cloud-rain-${
-                        forecastData.forecast.forecastday[0].day
-                          .daily_chance_of_rain > 50
-                          ? "heavy-"
-                          : ""
-                      }fill`}
-                    ></i>
-                    <p>{`${forecastData.forecast.forecastday[0].day.daily_chance_of_rain}%`}</p>
-                    <p>{`${forecastData.forecast.forecastday[0].day.totalprecip_mm}mm`}</p>
-                  </div>
-                </div>
-              </div>
-            )}
+
+            <div className="row justify-around">
+              <p>
+                {forecastData.location.localtime
+                  .substring(0, 10)
+                  .replaceAll("-", "/")}
+              </p>
+              <p>
+                {forecastData.location.localtime
+                  .substring(0, 10)
+                  .replaceAll("-", "/")}
+              </p>
+            </div>
+
+            <div className="row day-and-hours-box">
+              <ForecastContent
+                forecastData={forecastData}
+                day={1}
+                nextDays={true}
+                chart={true}
+              />
+              <hr />
+              <ForecastContent
+                forecastData={forecastData}
+                day={2}
+                nextDays={true}
+                chart={true}
+              />
+            </div>
           </div>
-        </div>
-        <div className="day-and-hours"></div>
+        )}
       </main>
       <main className="secondary-content">
         <div className="input-search-div">

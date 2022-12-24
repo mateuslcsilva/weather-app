@@ -1,0 +1,13 @@
+.forecast-content{
+    width: 50%;
+  }
+  
+  .bi-sunrise-fill,
+  .bi-sunset-fill{
+    font-size: 30pt;
+    text-shadow: 
+    -1px -1px 0px #19191940, 
+    -1px 1px 0px #19191940,                    
+     1px -1px 0px #19191940,                  
+     1px 0px 0px #19191940;
+  }
