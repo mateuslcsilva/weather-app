@@ -14,6 +14,8 @@ import "./App.css";
 
 function App() {
 
+  console.log(import.meta.env.PROD)
+
   const [requestType, setRequestType] = useState("current");
   const [cityRequested, setCityRequested] = useState("maringa");
   const [result, setResult] = useState<any>();
