@@ -26,20 +26,18 @@ function App() {
     let response = await fetch(
       `${BASE_URL}${requestType}.json?key=${API_KEY}&q=${cityRequested}&days=7&lang=pt`
     );
-    let result = await response.json();
-    console.log(result, requestType);
+    let data = await response.json();
     setRequestType("current");
-    setForecastData(result);
+    setForecastData(data.location? data : forecastData);
   };
 
   const getData = async () => {
     let response = await fetch(
       `${BASE_URL}${requestType}.json?key=${API_KEY}&q=${cityRequested}&lang=pt`
     );
-    let result = await response.json();
+    let data = await response.json();
     setRequestType("forecast");
-    console.log(result, requestType);
-    setResult(result);
+    setResult(data.location ? data : result);
   };
 
   const getBackground = () => {
@@ -77,9 +75,7 @@ function App() {
 
   useEffect(() => {
     if (result?.location) {
-      setTimeout(() => {
-        getBackground();
-      }, 1000);
+      getBackground();
       getForecast();
     }
   }, [result]);
@@ -136,10 +132,17 @@ function App() {
             id="searchBar"
             spellCheck="false"
             autoComplete="off"
-            onChange={(e) => setCityRequested(e.target.value)}
+            onKeyUp={(e) => e.key == 'Enter'? document.getElementById('searchButton')?.click() : {}}
             value={cityRequested}
-            onKeyUp={getData}
+            onChange={(e) => setCityRequested(e.target.value)}
           />
+          <button 
+          style={{all: 'unset'}}
+          id="searchButton"
+          onClick={getData}
+          >
+            <i className="bi bi-search"></i>
+            </button>
         </div>
         <div className="idk-content-1"></div>
         <div className="idk-content-2"></div>

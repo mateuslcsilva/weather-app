@@ -26,7 +26,6 @@ import {
     for(let i in props.forecastData.forecast.forecastday[props.day].hour){
         chartData.push(props.forecastData.forecast.forecastday[props.day].hour[i].chance_of_rain)
     }
-    console.log(chartData)
 
     const options = {
         responsive: true,
