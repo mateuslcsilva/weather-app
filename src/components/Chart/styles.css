@@ -7,3 +7,15 @@
     margin-left: 4%;
     background-color: #FFF;
 }
+
+@media (min-width: 1890px) {
+    .chart{
+        height: 50%;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1400px) {
+    .chart{
+        display: none;
+    }
+}

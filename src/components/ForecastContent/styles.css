@@ -11,3 +11,9 @@
      1px -1px 0px #19191940,                  
      1px 0px 0px #19191940;
   }
+
+  @media (max-width: 1400px) {
+    img{
+      margin: 15px 0;
+    }
+  }

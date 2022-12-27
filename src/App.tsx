@@ -9,6 +9,7 @@ import {
   snow,
 } from "./utils/weatherConditions";
 import { morning, midDay, evening, night } from "./utils/dayPeriod";
+import { daysOfWeek } from "./utils/daysOfWeek";
 import "./utils/backgrounds.css";
 import "./App.css";
 import { LocationCurrent } from "./components/LocationCurrent/LocationCurrent";
@@ -29,6 +30,7 @@ function App() {
     let data = await response.json();
     setRequestType("current");
     setForecastData(data.location? data : forecastData);
+    console.log(data)
   };
 
   const getData = async () => {
@@ -38,6 +40,7 @@ function App() {
     let data = await response.json();
     setRequestType("forecast");
     setResult(data.location ? data : result);
+    console.log(data)
   };
 
   const getBackground = () => {
@@ -89,20 +92,16 @@ function App() {
         {forecastData?.forecast && (
           <div className="day-and-hours">
             <div className="row justify-around">
-              <h2>Amanhã</h2>
-              <h2>Depois</h2>
+              <h2>{daysOfWeek[new Date(`${forecastData.location.localtime }`).getDay() + 1]}</h2>
+              <h2>{daysOfWeek[new Date(`${forecastData.location.localtime}`).getDay() + 2]}</h2>
             </div>
 
             <div className="row justify-around">
               <p>
-                {forecastData.location.localtime
-                  .substring(0, 10)
-                  .replaceAll("-", "/")}
+                {new Date(`${forecastData.forecast.forecastday[1].date}GMT-3`).toLocaleDateString()}
               </p>
               <p>
-                {forecastData.location.localtime
-                  .substring(0, 10)
-                  .replaceAll("-", "/")}
+                {new Date(`${forecastData.forecast.forecastday[2].date}GMT-3`).toLocaleDateString()}
               </p>
             </div>
 

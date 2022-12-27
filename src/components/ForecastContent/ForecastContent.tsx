@@ -4,9 +4,14 @@ import "./styles.css";
 import { HourlyChart } from "../Chart/Chart";
 
 export const ForecastContent = (props: any) => {
-
+console.log(`assets/${props.forecastData.forecast.forecastday[0].day.condition.icon.replace('//cdn.weatherapi.com/', '')}`)
   return (
     <div className="forecast-content">
+      {props.chart && (
+        <div className="justify-center">
+          <img src={`${props.forecastData.forecast.forecastday[props.day].day.condition.icon}`} alt="" />
+        </div>
+      )}
       <div
         className="row justify-around"
         style={{ width: "100%", transform: "translateY(15%)" }}
