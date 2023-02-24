@@ -46,14 +46,6 @@ export const HourlyCarousel = (props: any) => {
     <Glider
       className="glider-container"
       hasArrows
-      /* arrows={{
-        prev: '#arrow-prev',
-        next: '#arrow-next',
-      }} */
-      rewind
-      draggable
-      dragVelocity={1.2}
-      scrollLock
       responsive={[
         {
           breakpoint: 775,
