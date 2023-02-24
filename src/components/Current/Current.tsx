@@ -8,7 +8,7 @@ export const Current = (props:any) => {
           {props.result.current.temp_c}
           <span>ºC</span>
         </p>
-        <p>{props.result.current.condition.text}</p>
+        <p className='informative-text'>{props.result.current.condition.text}</p>
         <p>
           {`Sensacão Térmica: ${props.result.current.feelslike_c}`}
           <span>ºC</span>

@@ -15,6 +15,7 @@ import "./App.css";
 import { LocationCurrent } from "./components/LocationCurrent/LocationCurrent";
 import { NextDays } from "./components/NextDays/NextDays";
 import { ForecastContent } from "./components/ForecastContent/ForecastContent";
+import { HourlyCarousel } from "./components/Hourly/HourlyCarousel"
 
 function App() {
   const [requestType, setRequestType] = useState("current");
@@ -144,7 +145,9 @@ function App() {
             </button>
         </div>
         <div className="idk-content-1"></div>
-        <div className="idk-content-2"></div>
+        <div className="hourly">
+          <HourlyCarousel forecastData={forecastData} />
+        </div>
       </main>
 
       <div></div>

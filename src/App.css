@@ -137,7 +137,7 @@ i {
   color: #19191990;
   position: absolute;
   left: 85%;
-  top: 27%;
+  top: 20%;
 }
 
 .bi-search:hover{
@@ -156,12 +156,19 @@ i {
 }
 
 .idk-content-1,
-.idk-content-2 {
+.hourly{
   width: 100%;
   height: 44%;
   border-radius: 7px;
   background-color: #ffffff83;
   border: 1px solid #19191920;
+}
+
+.hourly{
+  padding: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border {
@@ -180,4 +187,51 @@ i {
   .day-and-hours {
     height: 70%;
   }
+
+  .bi-search{
+    top: 27%;
+  }
+}
+
+@media (max-width: 420px) {
+
+
+  .App{
+    flex-direction: column;
+    height: 200vh;
+    padding-top: 15vh;
+  }
+
+  .main-content{
+    width: 100vw;
+    height: auto;
+  }
+
+  .main-content > div{
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .secondary-content{
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .input-search-div{
+    height: 12vh;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .input-search:focus{
+    transform: none;
+  }
+
+  .bi-search{
+    position: inherit;
+    margin-left: -42px;
+  }
+  
 }

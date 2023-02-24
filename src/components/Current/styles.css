@@ -1,16 +1,15 @@
-.current{
-    width: 50%;
-    height: 85%;
-    padding: 2% 4%;
-    }
-    
-    .current-temp{
-      font-size: 60pt;
-      display: flex;
-    }
-    
-    .current-temp span{
-      font-size: 24pt;
-      margin-top: 1.5vh;
-    }
-    
+.current {
+  width: 50%;
+  height: 85%;
+  padding: 2% 4%;
+}
+
+.current-temp {
+  font-size: 60pt;
+  display: flex;
+}
+
+.current-temp span {
+  font-size: 24pt;
+  margin-top: 1.5vh;
+}

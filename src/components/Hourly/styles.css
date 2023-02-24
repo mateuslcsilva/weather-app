@@ -1,0 +1,33 @@
+.hour-info h4,
+.hour-info h5,
+.hour-info p {
+  text-align: center;
+}
+
+.hour-info {
+  max-width: 15vw;
+}
+
+#arrow-prev{
+  color: #000;
+  width: fit-content;
+  height: fit-content;
+}
+
+.hour-info * {}
+
+@media (min-width: 1799px) {
+
+  .hour-info h4{
+    font-size: 130%;
+  }
+
+  .hour-info h5,
+  .hour-info p {
+    font-size: 120%;
+  }
+
+  .hour-info *{
+    line-height: 250%;
+  }
+}
