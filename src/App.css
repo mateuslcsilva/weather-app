@@ -37,6 +37,7 @@ i {
   display: flex;
   justify-content: space-evenly;
 }
+
 .justify-start {
   display: flex;
   justify-content: flex-start;
@@ -82,10 +83,13 @@ i {
 .day-and-hours {
   width: 100%;
   height: 60%;
-  background-color: #ffffff83;
-  border-radius: 7px;
-  box-shadow: 4px 4px 15px #25252520;
-  border: 1px solid #19191920;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 2vh;
 }
 
@@ -131,7 +135,7 @@ i {
   padding: 0 10px;
 }
 
-.bi-search{
+.bi-search {
   font-size: 24pt;
   font-weight: bold;
   color: #19191990;
@@ -140,12 +144,12 @@ i {
   top: 20%;
 }
 
-.bi-search:hover{
+.bi-search:hover {
   color: #191919;
   cursor: pointer;
 }
 
-.bi-search:focus{
+.bi-search:focus {
   color: #191919;
 }
 
@@ -156,15 +160,21 @@ i {
 }
 
 .idk-content-1,
-.hourly{
+.hourly {
   width: 100%;
   height: 44%;
   border-radius: 7px;
-  background-color: #ffffff83;
-  border: 1px solid #19191920;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /*  border: 1px solid #19191920; */
 }
 
-.hourly{
+.hourly {
   padding: 2vw;
   display: flex;
   align-items: center;
@@ -188,7 +198,7 @@ i {
     height: 70%;
   }
 
-  .bi-search{
+  .bi-search {
     top: 27%;
   }
 }
@@ -196,28 +206,28 @@ i {
 @media (max-width: 420px) {
 
 
-  .App{
+  .App {
     flex-direction: column;
     height: 200vh;
     padding-top: 15vh;
   }
 
-  .main-content{
+  .main-content {
     width: 100vw;
     height: auto;
   }
 
-  .main-content > div{
+  .main-content>div {
     height: auto;
     padding: 20px 0;
   }
 
-  .secondary-content{
+  .secondary-content {
     height: 100vh;
     width: 100vw;
   }
 
-  .input-search-div{
+  .input-search-div {
     height: 12vh;
     position: fixed;
     top: 15px;
@@ -225,13 +235,13 @@ i {
     transform: translateX(-50%);
   }
 
-  .input-search:focus{
+  .input-search:focus {
     transform: none;
   }
 
-  .bi-search{
+  .bi-search {
     position: inherit;
     margin-left: -42px;
   }
-  
+
 }

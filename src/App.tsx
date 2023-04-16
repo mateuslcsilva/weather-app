@@ -123,7 +123,7 @@ function App() {
             </div>
           </div>
         )}
-      </main>
+      </main> 
       <main className="secondary-content">
         <div className="input-search-div">
           <input
