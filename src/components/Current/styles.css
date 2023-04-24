@@ -4,6 +4,10 @@
   padding: 2% 4%;
 }
 
+.current .informative-text {
+  white-space: nowrap;
+}
+
 .current-temp {
   font-size: 60pt;
   display: flex;
@@ -12,4 +16,10 @@
 .current-temp span {
   font-size: 24pt;
   margin-top: 1.5vh;
+}
+
+@media (max-width: 600px) {
+  .current .informative-text {
+    font-size: 10pt;
+  }
 }

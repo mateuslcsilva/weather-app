@@ -36,15 +36,11 @@ console.log(`assets/${props.forecastData.forecast.forecastday[0].day.condition.i
           className="column"
           style={{ fontSize: "14pt", padding: "25px 15px", width: "52%" }}
         >
-          <p>
-            <strong>{`Mínima: ${props.forecastData.forecast.forecastday[props.day].day.mintemp_c
-              .toString()
-              .substring(0, 2)}ºC`}</strong>
+          <p style={{"textAlign" : "center"}}>
+            <strong>{`Mínima: ${Math.floor(props.forecastData.forecast.forecastday[props.day].day.mintemp_c).toString()}ºC`}</strong>
           </p>
-          <p>
-            <strong>{`Máxima: ${props.forecastData.forecast.forecastday[props.day].day.maxtemp_c
-              .toString()
-              .substring(0, 2)}ºC`}</strong>
+          <p style={{"textAlign" : "center"}}>
+            <strong>{`Máxima: ${Math.floor(props.forecastData.forecast.forecastday[props.day].day.maxtemp_c).toString()}ºC`}</strong>
           </p>
         </div>
         <div

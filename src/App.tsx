@@ -140,12 +140,12 @@ function App() {
             <i className="bi bi-search"></i>
           </button>
         </div>
-        <div className="idk-content-1"></div>
+        <div className="idk-content-1">
+        </div>
         <div className="hourly">
           <HourlyCarousel forecastData={forecastData} />
         </div>
       </main>
-      <div></div>
     </div>
   );
 }

@@ -9,6 +9,15 @@
     font-size: 90%;
     color: #ffffffc4;
     transform: translate(4%, -18%);
+    white-space: nowrap;
   }
   
-  
+  @media (max-width: 600px) {
+    .location h2{
+      width: 180px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 16pt ;
+    }
+  }
