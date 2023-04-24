@@ -30,7 +30,7 @@ function App() {
     );
     let data = await response.json();
     setRequestType("current");
-    setForecastData(data.location? data : forecastData);
+    setForecastData(data.location ? data : forecastData);
     console.log(data)
   };
 
@@ -92,28 +92,24 @@ function App() {
         <LocationCurrent result={result} forecastData={forecastData} />
         {forecastData?.forecast && (
           <div className="day-and-hours">
-            <div className="row justify-around">
-              <h2>{daysOfWeek[new Date(`${forecastData.location.localtime }`).getDay() + 1]}</h2>
-              <h2>{daysOfWeek[new Date(`${forecastData.location.localtime}`).getDay() + 2]}</h2>
-            </div>
-
-            <div className="row justify-around">
+            <div>
+              <h2>{daysOfWeek[new Date(`${forecastData.location.localtime}`).getDay() + 1]}</h2>
               <p>
                 {new Date(`${forecastData.forecast.forecastday[1].date}GMT-3`).toLocaleDateString()}
               </p>
-              <p>
-                {new Date(`${forecastData.forecast.forecastday[2].date}GMT-3`).toLocaleDateString()}
-              </p>
-            </div>
-
-            <div className="row day-and-hours-box">
               <ForecastContent
                 forecastData={forecastData}
                 day={1}
                 nextDays={true}
                 chart={true}
               />
-              <hr />
+            </div>
+            <hr />
+            <div>
+              <h2>{daysOfWeek[new Date(`${forecastData.location.localtime}`).getDay() + 2]}</h2>
+              <p>
+                {new Date(`${forecastData.forecast.forecastday[2].date}GMT-3`).toLocaleDateString()}
+              </p>
               <ForecastContent
                 forecastData={forecastData}
                 day={2}
@@ -123,7 +119,7 @@ function App() {
             </div>
           </div>
         )}
-      </main> 
+      </main>
       <main className="secondary-content">
         <div className="input-search-div">
           <input
@@ -132,24 +128,23 @@ function App() {
             id="searchBar"
             spellCheck="false"
             autoComplete="off"
-            onKeyUp={(e) => e.key == 'Enter'? document.getElementById('searchButton')?.click() : {}}
+            onKeyUp={(e) => e.key == 'Enter' && document.getElementById('searchButton')?.click()}
             value={cityRequested}
             onChange={(e) => setCityRequested(e.target.value)}
           />
-          <button 
-          style={{all: 'unset'}}
-          id="searchButton"
-          onClick={getData}
+          <button
+            style={{ all: 'unset' }}
+            id="searchButton"
+            onClick={getData}
           >
             <i className="bi bi-search"></i>
-            </button>
+          </button>
         </div>
         <div className="idk-content-1"></div>
         <div className="hourly">
           <HourlyCarousel forecastData={forecastData} />
         </div>
       </main>
-
       <div></div>
     </div>
   );

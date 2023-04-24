@@ -32,6 +32,9 @@ import {
         plugins: {
           legend: {
             display: false,
+            labels: {
+              color: '#000'
+            }
           },
           title: {
             display: false,
@@ -42,17 +45,25 @@ import {
         },
         scales: {
           y: {
-            max: 100
+            max: 100,
+            ticks: {
+              color: '#000',
+            }
+          },
+          x: {
+            ticks: {
+              color: '#000',
+            }
           }
         }
       };
 
       const labelsFunc = () => {
-        let sla = []
+        let labels = []
         for(let i in props.forecastData.forecast.forecastday[props.day].hour){
-            sla.push(i)
+            labels.push(i)
         }
-        return sla
+        return labels
       }
 
       const labels = labelsFunc()

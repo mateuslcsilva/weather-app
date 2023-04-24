@@ -5,7 +5,7 @@
     height: 55%;
     border-radius: 5px;
     margin-left: 4%;
-    background-color: #FFF;
+    background-color: transparent;
 }
 
 @media (min-width: 1890px) {
@@ -20,8 +20,8 @@
     }
 }
 
-@media (max-width: 420px) {
+/* @media (max-width: 420px) {
     .chart{
         display: none;
     }
-}
+} */

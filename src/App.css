@@ -91,16 +91,25 @@ i {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 2vh;
+  display: flex;
+  flex-direction: row;
 }
 
-/* .day-and-hours *{
+/* .day-and-hours{
+  border: 1px solid tomato;
+}
+
+.day-and-hours *{
   border: 1px solid tomato;
 } */
 
-.day-and-hours-box {
-  width: 100%;
-  height: 85%;
+.day-and-hours > div{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 
 .days-box {
   width: 100%;
@@ -203,12 +212,12 @@ i {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 600px) {
 
 
   .App {
     flex-direction: column;
-    height: 200vh;
+    height: fit-content;
     padding-top: 15vh;
   }
 
@@ -242,6 +251,24 @@ i {
   .bi-search {
     position: inherit;
     margin-left: -42px;
+  }
+
+  .day-and-hours{
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .day-and-hours > div{
+    width: 100%;
+  }
+
+  .day-and-hours > hr{
+    width: 80%;
+  }
+
+  .hourly > div{
+    width: 80%;
   }
 
 }
