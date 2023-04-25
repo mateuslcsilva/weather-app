@@ -63,6 +63,14 @@ i {
   align-items: flex-end;
 }
 
+.loading-text{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 18pt;
+}
+
 .App {
   height: 100vh;
   width: 100vw;
@@ -168,9 +176,9 @@ i {
   transition: 300ms ease;
 }
 
-.idk-content-1,
+.credits,
 .hourly {
-  width: 100%;
+  max-width: 100%;
   height: 44%;
   border-radius: 7px;
   /* From https://css.glass */
@@ -181,6 +189,18 @@ i {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   /*  border: 1px solid #19191920; */
+}
+
+.credits{
+  background: url(assets/weather-api-logo-no-bg.png);
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.credits p{
+  margin: 20px;
+  font-size: 16pt;
 }
 
 .hourly {
@@ -269,6 +289,10 @@ i {
 
   .hourly > div{
     width: 80%;
+  }
+
+  .credits{
+    background-size: contain;
   }
 
 }

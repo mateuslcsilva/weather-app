@@ -11,7 +11,7 @@ export const LocationCurrent = (props: any) => {
       <div className="row" style={{ width: "100%" }}>
         {props.result?.current && <Current result={props.result} />}
         <hr />
-        {!props.forecastData?.forecast && <p>carregando</p>}
+        {!props.forecastData?.forecast && <p className="loading-text">Carregando...</p>}
         {props.forecastData?.forecast && (
             <ForecastContent forecastData={props.forecastData} day={"0"} />
         )}
