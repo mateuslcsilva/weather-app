@@ -153,7 +153,9 @@ function App() {
           {!forecastData && <p className="loading-text">Carregando...</p>}
         </div>
         <div className="credits">
-          <p>Powered by:</p>
+          <div>
+            <p>Powered by:</p>
+          </div>
         </div>
       </main>
     </div>
